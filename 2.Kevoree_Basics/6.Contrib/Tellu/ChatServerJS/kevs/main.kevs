@@ -1,0 +1,25 @@
+//sample of KevScript configuration
+
+add chatserver : JavascriptNode
+add chatclient0 : JavaNode
+
+// provide a network way to connect to those nodes
+network chatserver.ip.lo 127.0.0.1
+network chatclient0.ip.lo 127.0.0.1
+
+add group : WSGroup
+set group.master = 'chatclient0'
+attach chatserver, chatclient0 group
+
+// create and add ChatServer component (named "server") in "chatserver"
+add chatserver.server : no.tellu.ChatServer
+
+add chatserver.broker : WSMsgBroker
+
+// define on which port the broker will start
+set chatserver.broker.port = '9050'
+
+// bind the printer to the chan, Cannot do this since chan1 and chan0 is defined on JavaSide
+//bind chatserver.server.input chan0
+
+//bind chatserver.server.chatClients chan1

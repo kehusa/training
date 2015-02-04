@@ -6,3 +6,4 @@ add node0.myComp : org.kevoree.example.HelloWorld
 
 // set the content of the dictionary attribute 'greetMessage' to "Hello, HEADS!"
 set node0.myComp.greetMessage = 'Hello, HEADS!'
+

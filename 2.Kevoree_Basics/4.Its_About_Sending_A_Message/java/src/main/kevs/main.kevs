@@ -2,7 +2,7 @@
 add node0 : JavaNode
 
 // create and add your HelloWorld component (named "myComp") in "node0"
-add node0.myComp : org.kevoree.example.HelloWorld
+add node0.myComp : org.kevoree.example.MyHelloWorld
 
 // add an instance of WSGroup named "sync"
 add sync : WSGroup

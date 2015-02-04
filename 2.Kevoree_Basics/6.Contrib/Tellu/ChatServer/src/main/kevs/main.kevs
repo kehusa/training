@@ -1,0 +1,30 @@
+//sample of KevScript configuration
+
+
+add chatclient0 : JavaNode
+add chatserver : JavascriptNode
+
+add chatclient0.client : no.tellu.ChatClient
+
+add group : WSGroup
+set group.master='chatclient0'
+attach chatclient0, chatserver group
+
+// provide a network way to connect to those nodes
+network chatclient0.ip.lo 127.0.0.1
+
+// add a WSChan to transmit the messages forth and back between the ChatClient and the ChatServer
+add chan0 : WSChan/5.2.3-SNAPSHOT
+add chan1 : WSChan/5.2.3-SNAPSHOT
+
+// give the host:port of the broker to the chan
+set chan0.host = "localhost"
+set chan0.port = "9050"
+
+// give the host:port of the broker to the chan
+set chan1.host = "localhost"
+set chan1.port = "9065"
+
+bind chatclient0.client.chatServer chan0
+bind chatclient0.client.in chan1
+

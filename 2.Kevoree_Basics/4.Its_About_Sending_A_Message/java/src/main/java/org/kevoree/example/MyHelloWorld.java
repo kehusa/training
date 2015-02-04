@@ -9,11 +9,11 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 @ComponentType
-public class HelloWorld {
+public class MyHelloWorld {
 
     private ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(1);
 
-    @Param(defaultValue = "Hello, world!")
+    @Param(defaultValue = "Hello, world1!")
     private String greetMessage;
 
     @Output
@@ -22,11 +22,13 @@ public class HelloWorld {
     @Start
     public void start() {
         Log.info(greetMessage);
+        Log.info("Doing some initial stuffing");
 
         scheduledThreadPool.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
-                hello.send(greetMessage);
+                hello.send(greetMessage, null);
+                Log.info("Doing some stuffing");
             }
         }, 0, 5, TimeUnit.SECONDS);
     }
