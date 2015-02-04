@@ -23,7 +23,7 @@ public class ChatClient {
     org.kevoree.api.Context context;
 
     @Output
-    org.kevoree.api.Port chatServer;
+    org.kevoree.api.Port chatServerOut;
 
     @Input
     public void in(Object in) {
@@ -39,7 +39,7 @@ public class ChatClient {
         scheduledThreadPool.scheduleAtFixedRate(new Runnable() {
 
 			public void run() {				
-	        	chatServer.send(chatMessage, null);
+	        	chatServerOut.send(chatMessage, null);
 	            Log.info("Chat message no: "+i+++"sent from ChatClient: " + chatMessage);
 				
 			}

@@ -45,14 +45,14 @@ var ChatServer = AbstractComponent.extend({
      * Output port declaration - "chatClients"
      * @param {String} msg    Greeting message to send to others
      */
-    out_chatClients: function (msg) { /* This will be overwritten @runtime by Kevoree JS */ },
+    out_chatClients: function () { /* This will be overwritten @runtime by Kevoree JS */ },
     
     in_input: function (msg) {
 	
     	console.log(this.getName() + '>' + msg);
 		this.log.debug(this.getName() + '>' + msg);
-    	this.out_chatClients(msg +' from ' + this.getName())        
-        
+    	this.out_chatClients(msg +' from ' + this.getName());        
+    
     }
 });
 
