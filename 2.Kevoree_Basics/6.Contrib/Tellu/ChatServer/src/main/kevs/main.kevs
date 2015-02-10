@@ -12,11 +12,11 @@ attach chatserver, chatclient0 group
 // create and add ChatServer component (named "server") in "chatserver"
 add chatclient0.client : no.tellu.ChatClient
 
-add chan: WSChan/5.2.3-SNAPSHOT
+add chan: WSChan
 set chan.port = "9050"
 set chan.host = "localhost"
 
-add chan1: WSChan/5.2.3-SNAPSHOT
+add chan1: WSChan
 set chan1.port = "9050"
 set chan1.host = "localhost"
 
